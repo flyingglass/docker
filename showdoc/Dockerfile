@@ -1,5 +1,5 @@
 FROM php:5.6-apache
-COPY ./ /var/www/html/
+# COPY ./ /var/www/html/
 COPY sources.list /etc/sources.list
 # COPY apache2.conf /etc/apache2/apache2.conf
 
