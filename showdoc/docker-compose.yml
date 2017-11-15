@@ -1,0 +1,11 @@
+version: '2.0'
+
+services:
+  showdoc:
+    build: .
+    image: showdoc
+    restart: always
+    ports:
+    - 8080:80
+    volumes:
+    - /srv/docker/showdoc/showdoc:/var/www/html:Z
