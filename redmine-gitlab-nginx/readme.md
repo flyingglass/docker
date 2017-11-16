@@ -4,6 +4,13 @@
 3. check docker-compose.yml proxy port, the default is 80
 4. done!!!
 
+default name:
+GitLab:http://127.0.0.1/gitlab
+root/5iveL!fe
+Redmine:http://127.0.0.1/redmine
+admin/admin
+Jenkins:http://127.0.0.1/jenkins
+
 - redmine: https://github.com/sameersbn/docker-redmine
 - gitlab: https://github.com/sameersbn/docker-gitlab
 - https://qiita.com/nexkeh/items/02a4d6c33d884bda1b23
