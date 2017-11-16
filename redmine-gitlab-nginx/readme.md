@@ -4,5 +4,5 @@
 3. check docker-compose.yml proxy port, the default is 80
 4. done!!!
 
-redmine: https://github.com/sameersbn/docker-redmine
-gitlab: https://github.com/sameersbn/docker-gitlab
+- redmine: https://github.com/sameersbn/docker-redmine
+- gitlab: https://github.com/sameersbn/docker-gitlab
