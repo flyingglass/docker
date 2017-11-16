@@ -210,6 +210,7 @@ services:
     - OAUTH_AZURE_API_KEY=
     - OAUTH_AZURE_API_SECRET=
     - OAUTH_AZURE_TENANT_ID=
+
   # jenkins  
   jenkins:
     image: jenkins:latest
@@ -218,9 +219,11 @@ services:
     - JENKINS_OPTS=--prefix=/jenkins
     volumes:
     - /srv/docker/jenkins/jenkins:/var/jenkins_home
+
   # proxy
   proxy:
     build: proxy
+    image: proxy
     links:
       - gitlab:gitlab
       - redmine:redmine
