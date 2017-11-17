@@ -16,7 +16,7 @@ services:
     depends_on:
     - redmine-postgresql
     environment:
-    - TZ=Asia/Kolkata
+    - TZ=Asia/Shanghai
 
     - DB_ADAPTER=postgresql
     - DB_HOST=redmine-postgresql
@@ -88,9 +88,9 @@ services:
     depends_on:
     - gitlab-redis
     - gitlab-postgresql
-    #ports:
+    ports:
     #- "10080:80"
-    #- "10022:22"
+    - "2222:22"
     volumes:
     - /srv/docker/gitlab/gitlab:/home/git/data:Z
     environment:
@@ -106,15 +106,15 @@ services:
     - REDIS_HOST=gitlab-redis
     - REDIS_PORT=6379
 
-    - TZ=Asia/Kolkata
-    - GITLAB_TIMEZONE=Kolkata
+    - TZ=Asia/Shanghai
+    - GITLAB_TIMEZONE=Beijing
 
     - GITLAB_HTTPS=false
     - SSL_SELF_SIGNED=false
 
-    - GITLAB_HOST=localhost
-    - GITLAB_PORT=
-    - GITLAB_SSH_PORT=
+    - GITLAB_HOST=localhost # project path
+    - GITLAB_PORT= # http port
+    - GITLAB_SSH_PORT=2222 # ssh port
     - GITLAB_RELATIVE_URL_ROOT=/gitlab
     - GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alphanumeric-string
     - GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alphanumeric-string
@@ -217,12 +217,13 @@ services:
     restart: always
     environment:
     - JENKINS_OPTS=--prefix=/jenkins
+    - JAVA_OPTS=-Duser.timezone=Asia/Shanghai
     volumes:
     - /srv/docker/jenkins/jenkins:/var/jenkins_home
 
   # proxy
   proxy:
-    build: proxy
+    build: ./proxy
     image: proxy
     links:
       - gitlab:gitlab
