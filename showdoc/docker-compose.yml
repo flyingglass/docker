@@ -8,4 +8,4 @@ services:
     ports:
     - 8000:80
     volumes:
-    - /srv/docker/showdoc/showdoc:/var/www/html/showdoc:Z
+    - /srv/docker/showdoc/showdoc:/var/www/html:Z
