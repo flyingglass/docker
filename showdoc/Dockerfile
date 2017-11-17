@@ -14,6 +14,7 @@ RUN  \
     && docker-php-ext-install -j$(nproc) gd mcrypt
 
 
-RUN chmod -R 777 /var/www/html/
+RUN \
+	mkdir /var/www/html/showdoc && chmod -R 777 /var/www/html/
 
 CMD ["apache2-foreground"]
