@@ -243,3 +243,12 @@ services:
     - "8000:80"
     volumes:
     - /srv/docker/showdoc/showdoc:/var/www/html/showdoc:Z
+
+
+  # nexus
+  nexus:
+    image: sonatype/nexus3:3.2.0
+    ports:
+      - "8001:8081"
+    volumes:
+      - /srv/docker/nexus/nexus-data:/nexus-data:Z
