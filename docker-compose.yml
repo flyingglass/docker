@@ -248,6 +248,7 @@ services:
   # nexus
   nexus:
     image: sonatype/nexus3:3.2.0
+    restart: always
     ports:
       - "8001:8081"
     volumes:
