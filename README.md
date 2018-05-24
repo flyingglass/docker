@@ -1,6 +1,7 @@
 # docker
 
 - gitlab-redmine 目录 可供docker单独部署gitlab，redmine
+- gitlab-mirrors 目录 可供docker单独部署gitlab-mirrors, 具体配置参考gitlab-mirrors/README.md
 - redmine-gitlab-nignx 目录 可供docker nginx容器代理gitlab, redmine, jenkins
 - showdoc 目录 可供docker单独部署showdoc
 - nexus首次启动会出现权限不足的问题, 赋予权限chown 200 -R /srv/docker/nexus/nexus-data
