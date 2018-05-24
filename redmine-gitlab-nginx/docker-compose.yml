@@ -112,9 +112,9 @@ services:
     - GITLAB_HTTPS=false
     - SSL_SELF_SIGNED=false
 
-    - GITLAB_HOST=localhost # project path
-    - GITLAB_PORT= # http port
-    - GITLAB_SSH_PORT=2222 # ssh port
+    - GITLAB_HOST=183.63.172.108 # project path
+    - GITLAB_PORT=10182 # http port
+    - GITLAB_SSH_PORT=10183 # ssh port
     - GITLAB_RELATIVE_URL_ROOT=/gitlab
     - GITLAB_SECRETS_DB_KEY_BASE=long-and-random-alphanumeric-string
     - GITLAB_SECRETS_SECRET_KEY_BASE=long-and-random-alphanumeric-string
