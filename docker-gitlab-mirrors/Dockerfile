@@ -31,8 +31,10 @@ RUN git clone --depth 1 https://github.com/kennethreitz/requests.git \
 # python-gitlab3
 WORKDIR /tmp
 #RUN git clone --depth 1 https://github.com/alexvh/python-gitlab3.git \
-RUN git clone --depth 1 https://github.com/alexvh/python-gitlab3.git -b v0.5.4 \
+#RUN git clone --depth 1 https://github.com/alexvh/python-gitlab3.git -b v0.5.4 \
+RUN git clone https://github.com/alexvh/python-gitlab3.git \
 	&& cd python-gitlab3 \
+	&& git checkout v0.5.4 \
 	&& python setup.py install \
 	&& cd .. && rm -rf python-gitlab3
 
