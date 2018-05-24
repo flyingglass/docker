@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  gitlab-mirrors:
+    build: .
+    image: quay.io/klowner/gitlab-mirrors:latest
+    volumes:
+    - /srv/docker/gitlab-mirrors/config:/config:Z
+    - /srv/docker/gitlab-mirrors/data:/data:Z
+    environment:
+    - GITLAB_MIRROR_UID=1000
+    - GITLAB_MIRROR_GITLAB_USER=user
+    - GITLAB_MIRROR_GITLAB_NAMESPACE=Mirros
+    - GITLAB_MIRROR_GITLAB_URL=http://ip:port/gitlab/
