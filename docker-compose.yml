@@ -114,7 +114,7 @@ services:
     - GITLAB_HTTPS=false
     - SSL_SELF_SIGNED=false
 
-    - GITLAB_HOST=183.63.172.108 # project path
+    - GITLAB_HOST=host ip address # project path
     - GITLAB_PORT=10182 # http port
     - GITLAB_SSH_PORT=10183 # ssh port
     - GITLAB_RELATIVE_URL_ROOT=/gitlab
