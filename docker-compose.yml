@@ -92,7 +92,7 @@ services:
     - gitlab-postgresql
     ports:
     - "10182:80"
-    - "2222:22"
+    - "10183:22"
     volumes:
     - /srv/docker/gitlab/gitlab:/home/git/data:Z
     environment:
