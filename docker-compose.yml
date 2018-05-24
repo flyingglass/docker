@@ -92,7 +92,7 @@ services:
     - gitlab-postgresql
     ports:
     - "10182:80"
-    - "10183:22"
+    - "2222:22"
     volumes:
     - /srv/docker/gitlab/gitlab:/home/git/data:Z
     environment:
@@ -114,7 +114,11 @@ services:
     - GITLAB_HTTPS=false
     - SSL_SELF_SIGNED=false
 
+<<<<<<< Updated upstream
     - GITLAB_HOST=host ip address # project path
+=======
+    - GITLAB_HOST=times.flyflyfish.com # project path 183.63.172.108
+>>>>>>> Stashed changes
     - GITLAB_PORT=10182 # http port
     - GITLAB_SSH_PORT=10183 # ssh port
     - GITLAB_RELATIVE_URL_ROOT=/gitlab
@@ -250,8 +254,23 @@ services:
     image: sonatype/nexus3:3.2.0
     restart: always
     ports:
-      - "8001:8081"
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
     volumes:
       - /srv/docker/nexus/nexus-data:/nexus-data:Z
     environment:
     - NEXUS_CONTEXT=nexus
+
+  # gitlab-mirrors
+  gitlab-mirrors:
+    build: ./docker-gitlab-mirrors
+    image: gitlab-mirrors
+    volumes:
+    - /srv/docker/gitlab-mirrors/config:/config:Z
+    - /srv/docker/gitlab-mirrors/data:/data:Z
+    environment:
+    - GITLAB_MIRROR_UID=1000
+    - GITLAB_MIRROR_GITLAB_USER=liuyao
+    - GITLAB_MIRROR_GITLAB_NAMESPACE=ailares
+    - GITLAB_MIRROR_GITLAB_URL=http://ec2-184-73-123-104.compute-1.amazonaws.com:10182/gitlab
