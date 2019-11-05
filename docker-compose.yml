@@ -272,6 +272,6 @@ services:
   #  - /srv/docker/gitlab-mirrors/data:/data:Z
   #  environment:
   #  - GITLAB_MIRROR_UID=1000
-  #  - GITLAB_MIRROR_GITLAB_USER=liuyao
-  #  - GITLAB_MIRROR_GITLAB_NAMESPACE=ailares
-  #  - GITLAB_MIRROR_GITLAB_URL=http://doc.flyflyfish.com:10182/gitlab
+  #  - GITLAB_MIRROR_GITLAB_USER=user
+  #  - GITLAB_MIRROR_GITLAB_NAMESPACE=group
+  #  - GITLAB_MIRROR_GITLAB_URL=http://host:port/gitlab
