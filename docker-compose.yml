@@ -91,8 +91,8 @@ services:
     - gitlab-redis
     - gitlab-postgresql
     ports:
-    - "10182:80"
-    - "10183:22"
+    - "10184:22"
+    - "10185:80"
     volumes:
     - /srv/docker/gitlab/gitlab:/home/git/data:Z
     environment:
@@ -132,8 +132,13 @@ services:
     - GITLAB_EMAIL_REPLY_TO=noreply@example.com
     - GITLAB_INCOMING_EMAIL_ADDRESS=reply@example.com
 
-    - GITLAB_BACKUP_SCHEDULE=daily
+    - GITLAB_BACKUP_SCHEDULE=weekly
     - GITLAB_BACKUP_TIME=01:00
+    - AWS_BACKUPS=true
+    - AWS_BACKUP_REGION=us-east-1
+    - AWS_BACKUP_BUCKET=xxxxxxxxxx-bucket
+    - AWS_BACKUP_ACCESS_KEY_ID=xxxxxxxxxxx
+    - AWS_BACKUP_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxx
 
     - SMTP_ENABLED=false
     - SMTP_DOMAIN=www.example.com
@@ -235,14 +240,14 @@ services:
   #    - "80:80"
 
   # showdoc
-  showdoc:
-    build: ./showdoc
-    image: showdoc
-    restart: always
-    ports:
-    - "8000:80"
-    volumes:
-    - /srv/docker/showdoc/showdoc:/var/www/html/showdoc:Z
+  #showdoc:
+  #  build: ./showdoc
+  #  image: showdoc
+  #  restart: always
+  #  ports:
+  #  - "9000:80"
+  #  volumes:
+  #  - /srv/docker/showdoc/showdoc:/var/www/html/showdoc:Z
 
 
   # nexus
@@ -259,14 +264,14 @@ services:
     - NEXUS_CONTEXT=nexus
 
   # gitlab-mirrors
-  gitlab-mirrors:
-    build: ./docker-gitlab-mirrors
-    image: gitlab-mirrors
-    volumes:
-    - /srv/docker/gitlab-mirrors/config:/config:Z
-    - /srv/docker/gitlab-mirrors/data:/data:Z
-    environment:
-    - GITLAB_MIRROR_UID=1000
-    - GITLAB_MIRROR_GITLAB_USER=gitlab
-    - GITLAB_MIRROR_GITLAB_NAMESPACE=Mirrors
-    - GITLAB_MIRROR_GITLAB_URL=http://ip:port/gitlab-url
+  #gitlab-mirrors:
+  #  build: ./docker-gitlab-mirrors
+  #  image: gitlab-mirrors
+  #  volumes:
+  #  - /srv/docker/gitlab-mirrors/config:/config:Z
+  #  - /srv/docker/gitlab-mirrors/data:/data:Z
+  #  environment:
+  #  - GITLAB_MIRROR_UID=1000
+  #  - GITLAB_MIRROR_GITLAB_USER=liuyao
+  #  - GITLAB_MIRROR_GITLAB_NAMESPACE=ailares
+  #  - GITLAB_MIRROR_GITLAB_URL=http://doc.flyflyfish.com:10182/gitlab
