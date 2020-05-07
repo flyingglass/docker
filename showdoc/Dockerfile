@@ -9,9 +9,9 @@ RUN  \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
-        libpng12-dev \
+        libpng-dev \
 	# libapache2-mpm-itk \
-    && docker-php-ext-install -j$(nproc) gd mcrypt
+    && docker-php-ext-install -j$(nproc) gd mcrypt zip
 
 
 RUN \
